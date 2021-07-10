@@ -43,7 +43,7 @@ auto_make: The manufacturer of the vehicle
 auto_model: The model of the vehicle. 
 auto_year: The year of manufacture of the vehicle. 
 
-T**arget Label:**
+**Target Label:**
 Whether the claim is fraudulent or not.
 fraud_reported:  Y or N
 Apart from training files, we also require a "schema" file from the client, which contains all the relevant information about the training files such as:
@@ -53,7 +53,7 @@ Name of the files, Length of Date value in FileName, Length of Time value in Fil
 In this step, we perform different sets of validation on the given set of training files.  
  Name Validation- We validate the name of the files based on the given name in the schema file. We have created a regex pattern as per the name given in the schema file to use for validation. After validating the pattern in the name, we check for the length of date in the file name as well as the length of time in the file name. If all the values are as per requirement, we move such files to "Good_Data_Folder" else we move such files to "Bad_Data_Folder."
 
-** Number of Columns**
+**** Number of Columns****
 - We validate the number of columns present in the files, and if it doesn't match with the value given in the schema file, then the file is moved to "Bad_Data_Folder."
 
 **Name of Columns **
