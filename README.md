@@ -1,11 +1,14 @@
 **Problem Statement**
+
 To build a classification methodology to determine whether a customer is placing a fraudulent insurance claim.
 
 **Data Description**
+
 The client will send data in multiple sets of files in batches at a given location. The data has been extracted from the census bureau. 
 The data contains the following attributes:
 
 **Features:**
+
 months_as_customer: It denotes the number of months for which the customer is associated with the insurance company.
 age: continuous. It denotes the age of the person.
 policy_number: The policy number.
@@ -44,12 +47,14 @@ auto_model: The model of the vehicle.
 auto_year: The year of manufacture of the vehicle. 
 
 **Target Label:**
+
 Whether the claim is fraudulent or not.
 fraud_reported:  Y or N
 Apart from training files, we also require a "schema" file from the client, which contains all the relevant information about the training files such as:
 Name of the files, Length of Date value in FileName, Length of Time value in FileName, Number of Columns, Name of the Columns, and their datatype.
 
 **Data Validation**
+
 - We validate the number of columns present in the files, and if it doesn't match with the value given in the schema file, then the file is moved to "Bad_Data_Folder."
 - The name of the columns is validated and should be the same as given in the schema file. If not, then the file is moved to "Bad_Data_Folder".
 - The datatype of columns - The datatype of columns is given in the schema file. It is validated when we insert the files into Database. If the datatype is wrong, then the file is moved to "Bad_Data_Folder".
@@ -57,6 +62,7 @@ Name of the files, Length of Date value in FileName, Length of Time value in Fil
 Data Insertion in Database
 
 **Data Insertion in Database**
+
 1) Database Creation and connection - Create a database with the given name passed. If the database has already been created, open a connection to the database. 
 2) Table creation in the database - Table with name - "Good_Data", is created in the database for inserting the files in the "Good_Data_Folder" based on given column names and datatype in the schema file. If the table is already present, then the new table is not created, and new files are inserted in the already present table as we want training to be done on new as well as old training files.     
 3) Insertion of files in the table - All the files in the "Good_Data_Folder" are inserted in the above-created table. If any file has invalid data type in any of the columns, the file is not loaded in the table and is moved to "Bad_Data_Folder".
@@ -81,6 +87,7 @@ Apart from prediction files, we also require a "schema" file from the client, wh
 Name of the files, Length of Date value in FileName, Length of Time value in FileName, Number of Columns, Name of the Columns and their datatype.
 
 **Deployment**
+
 We will be deploying the model to the Pivotal Cloud Foundry platform. 
 This is a workflow diagram for the prediction of using the trained model.
 
